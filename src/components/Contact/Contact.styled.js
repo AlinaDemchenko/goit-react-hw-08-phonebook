@@ -17,12 +17,7 @@ export const StyledContact = styled.li`
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     font-size: 14px;
-  }
-
-  @media only screen and (max-width: 499px) {
-    p {
-      width: 300px;
-    }
+    width: 300px;
   }
 
   @media only screen and (min-width: 500px) {
