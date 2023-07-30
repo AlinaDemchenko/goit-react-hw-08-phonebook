@@ -9,8 +9,7 @@ export const StyledLoginForm = styled.div`
     height: 500px;
     margin: 100px auto;
     padding: 50px;
-    /* display: flex;
-    flex-direction: column; */
+    position: relative;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
@@ -20,29 +19,49 @@ export const StyledLoginForm = styled.div`
   h2 {
     font-size: 40px;
     margin-bottom: 30px;
+    font-family: 'REM';
+    margin: 0 auto 60px;
+    display: block;
+    width: 107px;
+  }
+
+  h2 span {
+    color: #fff500;
+  }
+
+  img {
+    width: 25px;
+    height: 13px;
+    position: absolute;
+    top: 90px;
+    left: 45%;
+    animation: flipInYVisible 2000ms ease both;
   }
 
   label {
-    width: 340px;
+    width: 313px;
     height: 25px;
-    display: flex;
-    gap: 20px;
-    flex-grow: 2;
-    margin-bottom: 20px;
+    margin: 0 120px 13px auto;
+    display: block;
+  }
+
+  label.password {
+    width: 344px;
+    margin: 0 120px 30px auto;
   }
 
   span {
-    margin-top: 2px;
+    margin: 2px 20px 0 0;
   }
 
   input {
-    width: 100%;
-    padding: 0;
-    border: none;
-    border-bottom: 1px solid #bbbbbb;
-    font-size: 15px;
+    width: 250px;
+    padding: 3px 10px;
+    border: 1px solid #bbbbbb;
+    font-size: 13px;
     outline: none;
     color: #737373;
+    border-radius: 5px;
   }
 
   input:valid {
@@ -50,28 +69,33 @@ export const StyledLoginForm = styled.div`
   }
 
   button {
-    display: inline-block;
+    margin: 0 auto;
+    display: block;
     width: 160px;
-    margin: 48px 0 68px 180px;
-    padding: 12px;
+    padding: 11px;
     border: none;
     border-radius: 20px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.1em;
     background-color: #fff500;
     transition: box-shadow 250ms ease;
   }
 
   button:hover {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   }
 
   p {
-    text-align: right;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
   }
 
   a {
     color: black;
+    padding: 3px;
+    font-weight: bolder;
   }
 `;

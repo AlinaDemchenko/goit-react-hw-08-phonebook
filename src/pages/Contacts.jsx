@@ -1,6 +1,7 @@
+import ContactsLayout from 'components/ContactsLayout/ContactsLayout';
 import Loader from 'components/Loader/Loader';
 import Notification from 'components/Notification/Notification';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { selectLoading } from 'redux/selectors';
 
 const Contacts = () => {
@@ -8,7 +9,7 @@ const Contacts = () => {
 
   return (
     <main>
-      <h1>Contacts</h1>
+      <ContactsLayout />
       {isLoading && <Loader />}
       <Notification />
     </main>

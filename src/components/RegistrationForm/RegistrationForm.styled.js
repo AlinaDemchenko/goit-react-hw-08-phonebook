@@ -45,7 +45,6 @@ export const StyledRegistrationForm = styled.div`
     font-size: 15px;
     outline: none;
     color: black;
-    z-index: 3;
     letter-spacing: 0.1em;
     font-family: 'IBM Plex Mono';
     background-color: white !important;
@@ -53,7 +52,7 @@ export const StyledRegistrationForm = styled.div`
   }
 
   input.name, input.email {
-    padding-left: 35px;
+    padding-left: 30px;
   }
 
   input:valid {
@@ -75,11 +74,11 @@ export const StyledRegistrationForm = styled.div`
     display: inline-block;
     width: 160px;
     margin: 48px 0 68px 190px;
-    padding: 12px;
+    padding: 11px;
     border: none;
     border-radius: 20px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.1em;
     background-color: #fff500;
     transition: box-shadow 250ms ease;
@@ -98,8 +97,6 @@ export const StyledRegistrationForm = styled.div`
   a {
     color: black;
     padding: 3px;
-    border-radius: 5px;
     font-weight: bolder;
-    transition: text-decoration 250ms ease;
   }
 `;

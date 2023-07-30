@@ -1,47 +1,51 @@
-import PropTypes from 'prop-types';
 import { StyledForm } from './Form.styled';
+import { toast } from 'react-toastify';
+import { addContactThunk } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
+import { useSelector, useDispatch } from 'react-redux';
 
-const Form = ({ onAddContact }) => {
+const Form = () => {
+  const items = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
   const handleSubmit = evt => {
     evt.preventDefault();
-    const contact = {
+    const newContact = {
       name: evt.currentTarget.name.value,
       number: evt.currentTarget.number.value,
     };
-    evt.currentTarget.reset();
-    return onAddContact(contact);
+    const checkedContact = items.find(
+      contact => newContact.name === contact.name
+    );
+    if (checkedContact) {
+      toast.info(`${newContact.name} is already in your contacts`);
+      return;
+    } else {
+      dispatch(addContactThunk(newContact));
+    }
+    // evt.currentTarget.reset();
   };
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <label>
-        <span>Name:</span>
-        <input
-          className="name"
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </label>
-      <label>
-        <span>Number:</span>
-        <input
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </label>
+      <input
+        className="name"
+        type="text"
+        name="name"
+        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        required
+      />
+      <input
+        type="tel"
+        name="number"
+        pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
+        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        required
+      />
       <button type="submit">Add contact</button>
     </StyledForm>
   );
-};
-
-Form.propTypes = {
-  onAddContact: PropTypes.func.isRequired,
 };
 
 export default Form;

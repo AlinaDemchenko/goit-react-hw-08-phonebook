@@ -1,29 +1,23 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid black;
-  margin: 0 auto;
+width: 100%;
+display: flex;
 
-  span {
-    display: inline-block;
-    width: 63px;
-    text-align: right;
-    margin-right: 13px;
-  }
-
-  input{
-    outline-color: #3f6e93;
+  input {
+    width: 30%;
+    padding: 0 5px;
+    /* outline-color: #3f6e93; */
+    /* border: 1px solid black; */
+    border: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
   }
 
   button {
-    height: 20px;
-    width: 140px;
+    height: 26px;
+    width: 90px;
     cursor: pointer;
     background-color: #3f6e93;
     color: white;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSharedLayout = styled.div`
+export const StyledSharedLayout = styled.main`
   height: 100vh;
   color: #010101;
   background: radial-gradient(

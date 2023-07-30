@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 // import Home from '../pages/Home/Home';
 // import { useEffect } from 'react';
-// import { toast } from 'react-toastify';
+
 // import { useDispatch, useSelector } from 'react-redux';
 // import {
 //   getContactsThunk,
@@ -31,7 +31,6 @@ const Register = lazy(() => import('../pages/Register'));
 const Home = lazy(() => import('../pages/Home'));
 
 export function App() {
-  //   const items = useSelector(selectContacts);
   //   const isLoading = useSelector(selectLoading);
   //   const filterValue = useSelector(selectFilter);
   //   const error = useSelector(selectError);
@@ -54,17 +53,7 @@ export function App() {
   //     dispatch(deleteContactThunk(id));
   //   };
 
-  //   const onAddContact = contactData => {
-  //     const checkedContact = items.find(
-  //       contact => contactData.name === contact.name
-  //     );
-  //     if (checkedContact) {
-  //       toast.info(`${contactData.name} is already in your contacts`);
-  //       return;
-  //     } else {
-  //       dispatch(addContactThunk(contactData));
-  //     }
-  //   };
+
 
   //   const onFilter = filterData => {
   //     dispatch(setFilter(filterData));
@@ -78,7 +67,7 @@ export function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="contacts" element={<Contacts />} />
-        <Route path="*" element={<Navigate to="/home" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   );
