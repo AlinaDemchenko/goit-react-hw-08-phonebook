@@ -23,7 +23,7 @@ const Form = () => {
     } else {
       dispatch(addContactThunk(newContact));
     }
-    // evt.currentTarget.reset();
+    evt.currentTarget.reset();
   };
 
   return (
@@ -43,7 +43,10 @@ const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       />
-      <button type="submit">Add contact</button>
+      <button type="submit">
+        {/* ➕ */}
+        &#10753;
+        </button>
     </StyledForm>
   );
 };

@@ -1,47 +1,56 @@
 import styled from 'styled-components';
 
 export const StyledContact = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
   text-align: left;
+  height: 28px;
+  width: 566px;
+  margin-bottom: 20px;
 
   p {
-    display: inline-block;
-    height: 20px;
-    margin: 0 40px 0 0;
-    padding: 2px 20px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    font-size: 14px;
-    width: 300px;
+    padding: 1px 5px;
+    display: inline-flex;
+    align-items: baseline;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 0;
   }
 
-  @media only screen and (min-width: 500px) {
-    p {
-      width: 500px;
-    }
+  p::after {
+    content: '';
+    margin-left: 10px;
+    display: inline-block;
+    border-bottom: 2px dotted #bbbbbb;
+    width: 100px;
+    flex-grow: 2;
+  }
+
+  p > span {
+    color: #fff500;
+    margin-right: 20px;
   }
 
   a {
+    display: inline-block;
     color: black;
+    text-decoration: none;
+    width: 520px;
+    height: 100%;
+    padding: 0 15px;
+    margin-right: 18px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
   }
 
   button {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    width: 28px;
+    height: 28px;
     cursor: pointer;
-    background-color: #3f6e93;
-    color: white;
+    background-color: transparent;
+    padding: 0;
     border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    color: black;
+    font-size: 100%;
+    font-weight: bold;
+    display: inline;
   }
 `;

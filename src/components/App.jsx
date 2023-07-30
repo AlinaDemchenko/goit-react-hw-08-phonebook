@@ -2,14 +2,14 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
 // import Home from '../pages/Home/Home';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//   getContactsThunk,
-//   addContactThunk,
-//   deleteContactThunk,
-// } from 'redux/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getContactsThunk,
+  addContactThunk,
+  deleteContactThunk,
+} from 'redux/operations';
 // import { setFilter } from 'redux/slice';
 // import {
 //   selectContacts,
@@ -31,27 +31,23 @@ const Register = lazy(() => import('../pages/Register'));
 const Home = lazy(() => import('../pages/Home'));
 
 export function App() {
+  const dispatch = useDispatch();
   //   const isLoading = useSelector(selectLoading);
   //   const filterValue = useSelector(selectFilter);
   //   const error = useSelector(selectError);
 
-  //   const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     dispatch(getContactsThunk());
-  //     //     .unwrap().catch((error)=>{
-  //     // toast.error(error.message);
-  //     // })
-  //   }, [dispatch]);
+    useEffect(() => {
+      dispatch(getContactsThunk());
+      //     .unwrap().catch((error)=>{
+      // toast.error(error.message);
+      // })
+    }, [dispatch]);
 
   //   useEffect(() => {
   //     if (!error) return;
   //     toast.info(error);
   //   }, [error]);
-
-  //   const onDeleteContact = id => {
-  //     dispatch(deleteContactThunk(id));
-  //   };
 
 
 
@@ -59,7 +55,6 @@ export function App() {
   //     dispatch(setFilter(filterData));
   //   };
 
-  //   const filteredContacts = useSelector(selectFilteredContacts);
    return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

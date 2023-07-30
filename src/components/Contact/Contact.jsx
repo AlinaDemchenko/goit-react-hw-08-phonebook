@@ -1,24 +1,32 @@
 import PropTypes from 'prop-types';
 import { StyledContact } from './Contact.styled';
+import { useDispatch } from 'react-redux';
+import { deleteContactThunk } from 'redux/operations';
 
-const Contact = ({ contactItemData, onDeleteContact }) => {
+const Contact = ({ contactItemData}) => {
+      const dispatch = useDispatch();
+
+    const onDeleteContact = id => {
+      dispatch(deleteContactThunk(id));
+    };
+
   return (
     <StyledContact>
       <a href={`tel:+${contactItemData.number}`}>
       <p>
-        👤&nbsp;&nbsp;{contactItemData.name}:{' '}
-        <span>{contactItemData.number}</span>
+      <span>●</span>
+        {contactItemData.name}: {contactItemData.number}
       </p>
       </a>
       <button type="button" onClick={() => onDeleteContact(contactItemData.id)}>
-        ✕
+      {/* &#10006; */}
+      ✕
       </button>
     </StyledContact>
   );
 };
 
 Contact.propTypes = {
-  onDeleteContact: PropTypes.func.isRequired,
   contactItemData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

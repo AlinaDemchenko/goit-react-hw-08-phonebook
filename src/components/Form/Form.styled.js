@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledForm = styled.form`
 width: 100%;
 display: flex;
+margin-bottom: 20px;
 
   input {
     width: 30%;
@@ -16,12 +17,15 @@ display: flex;
   }
 
   button {
+    width: 26px;
     height: 26px;
-    width: 90px;
     cursor: pointer;
-    background-color: #3f6e93;
-    color: white;
+    background-color: transparent;
+    padding: 0;
     border: none;
-    border-radius: 5px;
+    /* border: 1px solid black;
+    border-radius: 50%; */
+    color: black;
+    font-size: 26px;
   }
 `;

@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const StyledContactsLayout = styled.div`
 width: 100vw;
-height: 100vh;
-padding-top: 20px;
+height: 100%;
+padding: 20px 0;
 
 div{
-    width: 80%;
+    max-width: 80%;
     height: 80%;
     padding: 50px;
     background-color: #fff;
