@@ -5,15 +5,11 @@ import Contact from '../Contact/Contact';
 
 const ContactList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
+
   return (
     <StyledContacts>
-      {filteredContacts.map(contact => {
-        return (
-          <Contact
-            contactItemData={contact}
-            key={contact.id}
-          />
-        );
+      {filteredContacts.map((contact, idx) => {
+        return <Contact contactItemData={contact} key={contact.id} index={idx} />;
       })}
     </StyledContacts>
   );

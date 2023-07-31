@@ -35,7 +35,7 @@ export const StyledLoginForm = styled.div`
     position: absolute;
     top: 90px;
     left: 45%;
-    animation: flipInYVisible 2000ms ease both;
+    animation: flipInYVisible 1500ms ease both;
   }
 
   label {

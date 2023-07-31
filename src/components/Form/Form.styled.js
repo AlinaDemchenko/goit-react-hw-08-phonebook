@@ -1,31 +1,50 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-width: 100%;
-display: flex;
-margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20px;
 
   input {
+    height: 28px;
     width: 30%;
-    padding: 0 5px;
-    /* outline-color: #3f6e93; */
-    /* border: 1px solid black; */
+    padding: 2px 10px;
     border: none;
-    margin-right: 20px;
     border-radius: 5px;
+    margin-right: 18px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
+    font-family: 'IBM Plex Mono';
+    font-size: calc(12px + 3 * (100vw - 320px) / 930);
+    color: #535353;
+  }
+
+  input.name {
+    margin-right: 20px;
+  }
+
+  input:focus {
+    outline: 1px solid #fff500;
+  }
+
+  input::placeholder{
+    color: #797979;
   }
 
   button {
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    background-color: transparent;
+    width: 20px;
+    height: 20px;
     padding: 0;
     border: none;
-    /* border: 1px solid black;
-    border-radius: 50%; */
+    background-color: #fff500;
+    border-radius: 50%;
     color: black;
-    font-size: 26px;
+    font-weight: bold;
+    transform: rotate(45deg);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 14px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;
   }
 `;

@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getContactsThunk,
-  addContactThunk,
-  deleteContactThunk,
+  // addContactThunk,
+  // deleteContactThunk,
 } from 'redux/operations';
 // import { setFilter } from 'redux/slice';
 // import {
