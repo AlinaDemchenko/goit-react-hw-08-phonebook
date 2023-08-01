@@ -1,7 +1,6 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import SharedLayout from './SharedLayout/SharedLayout';
-// import Home from '../pages/Home/Home';
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';

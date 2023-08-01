@@ -26,7 +26,7 @@ export const StyledTitle = styled.div`
     color: #fff500;
     animation: lightSpeedInRight 500ms ease 900ms both;
     position: absolute;
-    text-shadow:  1px 1px 0.5px #00000082;
+    text-shadow: 1px 1px 0.5px #00000082;
   }
 
   @keyframes lightSpeedInRight {

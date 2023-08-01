@@ -9,7 +9,9 @@ const ContactList = () => {
   return (
     <StyledContacts>
       {filteredContacts.map((contact, idx) => {
-        return <Contact contactItemData={contact} key={contact.id} index={idx} />;
+        return (
+          <Contact contactItemData={contact} key={contact.id} index={idx} />
+        );
       })}
     </StyledContacts>
   );

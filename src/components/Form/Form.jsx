@@ -46,9 +46,8 @@ const Form = () => {
         required
       />
       <button type="submit">
-<span>✕</span>
-         
-        </button>
+        <span>✕</span>
+      </button>
     </StyledForm>
   );
 };

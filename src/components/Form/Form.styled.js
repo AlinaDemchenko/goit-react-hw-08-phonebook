@@ -8,7 +8,7 @@ export const StyledForm = styled.form`
 
   input {
     height: 28px;
-    width: 30%;
+    width: 272.5px;
     padding: 2px 10px;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@ export const StyledForm = styled.form`
     outline: 1px solid #fff500;
   }
 
-  input::placeholder{
+  input::placeholder {
     color: #797979;
   }
 

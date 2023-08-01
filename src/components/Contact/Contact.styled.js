@@ -37,12 +37,16 @@ export const StyledContact = styled.li`
     display: inline-block;
     color: black;
     text-decoration: none;
-    width: calc(60% + 20px);
+    width: 565px;
     height: 100%;
     padding: 0 15px;
     margin-right: 18px;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
+  }
+
+  a:hover {
+    transform: scaleY(1.1);
   }
 
   button {

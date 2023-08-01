@@ -51,7 +51,8 @@ export const StyledRegistrationForm = styled.div`
     color: gray;
   }
 
-  input.name, input.email {
+  input.name,
+  input.email {
     padding-left: 30px;
   }
 

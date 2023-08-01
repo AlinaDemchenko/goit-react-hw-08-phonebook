@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledSharedLayout = styled.div`
-  min-height: 100vw;
+  min-height: 100vh;
   color: #010101;
   background-image: radial-gradient(
     ellipse,

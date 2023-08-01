@@ -6,7 +6,9 @@ const Title = () => {
     <StyledTitle>
       <div>
         <img src={phone} alt="phone" />
-        <h1>ontact<span>.</span></h1>
+        <h1>
+          ontact<span>.</span>
+        </h1>
       </div>
     </StyledTitle>
   );
