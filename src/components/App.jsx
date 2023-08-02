@@ -1,9 +1,8 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import { selectLoading, selectError } from 'redux/selectors';
-import { refreshUserThunk } from 'redux/operations';
+import { selectLoading } from 'redux/selectors';
+import { refreshUserThunk } from 'redux/user/userThunks';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import SharedLayout from './SharedLayout/SharedLayout';
 import PublicRoute from 'Guards/PublicRoute';
 import PrivateRoute from 'Guards/PrivateRoute';
@@ -17,18 +16,11 @@ const Home = lazy(() => import('../pages/Home'));
 
 export function App() {
   const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(refreshUserThunk());
   }, [dispatch]);
-
-  useEffect(() => {
-    if (error) {
-      error.name === "MongoError" ? toast.info('This account already exists') : toast.info('Wrong login data')
-    }
-  }, [error]);
 
   return (
     <>

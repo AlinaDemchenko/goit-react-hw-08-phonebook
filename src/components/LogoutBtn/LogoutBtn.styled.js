@@ -13,6 +13,7 @@ export const StyledLogoutBtn = styled.button`
   font-size: 17px;
   padding: 12px;
   overflow: hidden;
+  transition: letter-spacing 0.25s ease;
 
   &:hover{
     letter-spacing: 0.1em;
@@ -26,9 +27,10 @@ export const StyledLogoutBtn = styled.button`
     font-size: 25px;
     font-weight: bold;
     color: #fff500;
+    transition: margin-left 0.25s ease;
   }
 
   &:hover span{
-    margin-left: 20px;
+    margin-left: 22px;
   }
 `;

@@ -17,6 +17,7 @@ const handleFulfilled = state => {
 const rootSlice = createSlice({
   name: 'root',
   initialState: { isLoading: false, error: null },
+  reducers:{setError: (state) => {state.error = null}},
   extraReducers: builder => {
     builder
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
@@ -28,4 +29,5 @@ const rootSlice = createSlice({
   },
 });
 
+export const {setError} = rootSlice.actions;
 export const rootReducer = rootSlice.reducer;

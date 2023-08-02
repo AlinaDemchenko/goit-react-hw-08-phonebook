@@ -2,7 +2,9 @@ import { StyledRegistrationForm } from './RegistrationForm.styled';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+
 const RegistrationForm = ({ onRegister }) => {
+
   const handlerSubmit = evt => {
     evt.preventDefault();
     const newUser = {

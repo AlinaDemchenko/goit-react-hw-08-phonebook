@@ -1,4 +1,3 @@
-import ContactsLayout from 'components/ContactsLayout/ContactsLayout';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { useEffect } from 'react';
@@ -7,9 +6,15 @@ import {
   getContactsThunk,
   deleteContactThunk,
   addContactThunk,
-  logOutThunk,
-} from 'redux/operations';
-import { setFilter } from 'redux/Slice/contactsSlice';
+} from 'redux/contacts/contactsThunks';
+import { logOutThunk } from 'redux/user/userThunks';
+import { setFilter } from 'redux/contacts/contactsSlice';
+import ContactsLayout from 'components/ContactsLayout/ContactsLayout';
+import Form from 'components/Form/Form';
+import ContactList from 'components/ContactList/ContactList';
+import phone from '../images/phone-short.png';
+import Filter from 'components/Filter/Filter';
+import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 
 const Contacts = () => {
   const items = useSelector(selectContacts);
@@ -46,12 +51,21 @@ const Contacts = () => {
 
   return (
     <main>
-      <ContactsLayout
-        onDeleteContact={onDeleteContact}
-        onAddContact={onAddContact}
-        onLogout={onLogout}
-        onFilter={onFilter}
-      />
+      <ContactsLayout>
+       <div className="cover">
+        <div className="wrapper">
+          <img src={phone} alt="phone logo" />
+          <h1>
+            Contact
+            <span>.</span>
+          </h1>
+          <Filter onFilter={onFilter} />
+          <LogoutBtn onLogout={onLogout} />
+        </div>
+        <Form onAddContact={onAddContact} />
+        {items.length > 0 && <ContactList onDeleteContact={onDeleteContact} />}
+      </div>
+      </ContactsLayout>
     </main>
   );
 };
