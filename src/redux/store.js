@@ -10,16 +10,22 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { contactsReducer } from './slice.js';
+import { contactsReducer } from './Slice/contactsSlice.js';
+import { userReducer } from './Slice/authSlice.js';
+import { rootReducer } from './Slice/rootSlice.js';
 
-const contactsPersistConfig = {
-  key: 'contacts',
+const userPersistConfig = {
+  key: 'user',
   storage,
-  // whitelist: ['contacts'],
+  whitelist: ['token'],
 };
 
 export const store = configureStore({
-  reducer: persistReducer(contactsPersistConfig, contactsReducer),
+  reducer:{
+    user: persistReducer(userPersistConfig, userReducer),
+    contacts: contactsReducer,
+    root: rootReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

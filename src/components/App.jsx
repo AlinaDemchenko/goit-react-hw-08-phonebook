@@ -1,28 +1,14 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
+import { selectLoading, selectError } from 'redux/selectors';
+import { refreshUserThunk } from 'redux/operations';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import SharedLayout from './SharedLayout/SharedLayout';
-import { useEffect } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getContactsThunk,
-  // addContactThunk,
-  // deleteContactThunk,
-} from 'redux/operations';
-// import { setFilter } from 'redux/slice';
-// import {
-//   selectContacts,
-//   selectError,
-//   selectFilter,
-//   selectFilteredContacts,
-//   selectLoading,
-// } from 'redux/selectors';
-// import Form from './Form/Form';
-// import ContactList from './ContactList/ContactList';
-// import Section from './Section/Section';
-// import Filter from './Filter/Filter';
-// import Loader from './Loader/Loader';
-// import Notification from './Notification/Notification';
+import PublicRoute from 'Guards/PublicRoute';
+import PrivateRoute from 'Guards/PrivateRoute';
+import Notification from './Notification/Notification';
+import Loader from './Loader/Loader';
 
 const Contacts = lazy(() => import('../pages/Contacts'));
 const Login = lazy(() => import('../pages/Login'));
@@ -30,40 +16,62 @@ const Register = lazy(() => import('../pages/Register'));
 const Home = lazy(() => import('../pages/Home'));
 
 export function App() {
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
-  //   const isLoading = useSelector(selectLoading);
-  //   const filterValue = useSelector(selectFilter);
-  //   const error = useSelector(selectError);
 
+  useEffect(() => {
+    dispatch(refreshUserThunk());
+  }, [dispatch]);
 
-    useEffect(() => {
-      dispatch(getContactsThunk());
-      //     .unwrap().catch((error)=>{
-      // toast.error(error.message);
-      // })
-    }, [dispatch]);
+  useEffect(() => {
+    if (error) {
+      error.name === "MongoError" ? toast.info('This account already exists') : toast.info('Wrong login data')
+    }
+  }, [error]);
 
-  //   useEffect(() => {
-  //     if (!error) return;
-  //     toast.info(error);
-  //   }, [error]);
-
-
-
-  //   const onFilter = filterData => {
-  //     dispatch(setFilter(filterData));
-  //   };
-
-   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />}/>
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="contacts" element={<Contacts />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Route>
-    </Routes>
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <Home />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+      <Notification />
+      {isLoading && <Loader />}
+    </>
   );
 }
 // <Route path="/home" element={<Home />}/>

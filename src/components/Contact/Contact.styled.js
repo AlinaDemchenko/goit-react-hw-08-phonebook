@@ -43,10 +43,14 @@ export const StyledContact = styled.li`
     margin-right: 18px;
     border-radius: 5px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
+    transition: transform 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      box-shadow 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   a:hover {
     transform: scaleY(1.1);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 20px,
+      rgba(0, 0, 0, 0.22) 0px 6px 6px;
   }
 
   button {
@@ -66,6 +70,6 @@ export const StyledContact = styled.li`
   }
 
   button:hover {
-    transform: rotate(90deg);
+    transform: scale(1.2);
   }
 `;

@@ -1,18 +1,22 @@
 import { StyledRegistrationForm } from './RegistrationForm.styled';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const RegistrationForm = () => {
-  const navigate = useNavigate();
-
-  const habndlerSubmit = evt => {
+const RegistrationForm = ({ onRegister }) => {
+  const handlerSubmit = evt => {
     evt.preventDefault();
-    navigate('/contacts', { replace: true });
+    const newUser = {
+      name: evt.currentTarget.name.value,
+      email: evt.currentTarget.email.value,
+      password: evt.currentTarget.password.value,
+    };
+    onRegister(newUser);
+    evt.currentTarget.reset();
   };
 
   return (
     <StyledRegistrationForm>
-      <form onSubmit={habndlerSubmit}>
+      <form onSubmit={handlerSubmit}>
         <h2>
           Registration<span>.</span>
         </h2>
@@ -30,11 +34,17 @@ const RegistrationForm = () => {
         </label>
         <label>
           <span>Email </span>
-          <input type="email" className="email" required />
+          <input type="email" name="email" className="email" required />
         </label>
         <label>
           <span>Password </span>
-          <input type="password" minLength="6" maxLength="12" required />
+          <input
+            type="password"
+            name="password"
+            minLength="6"
+            maxLength="12"
+            required
+          />
         </label>
         <button type="Submit">SIGN UP</button>
         <p>
@@ -43,6 +53,10 @@ const RegistrationForm = () => {
       </form>
     </StyledRegistrationForm>
   );
+};
+
+RegistrationForm.propTypes = {
+  onRegister: PropTypes.func.isRequired,
 };
 
 export default RegistrationForm;

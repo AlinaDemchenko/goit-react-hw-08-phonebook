@@ -1,34 +1,33 @@
 import styled from 'styled-components';
 import filter from '../../images/filter2.png';
-import hoverFilter from '../../images/filter-transparent.png';
 
 export const StyledFilter = styled.div`
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   max-height: 28px;
+  min-width: 310.5px;
+  height: 28px;
+  text-align: left;
 
   input {
-    border: 0;
-    width: 0;
-    opacity: 0;
-    transition: transform 2500ms ease;
-  }
-
-  input.visible {
     opacity: 1;
-    width: 272.5px;
+    width: 200px;
     height: 28px;
     padding: 2px 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 18px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px;
+    border: 2px solid #fff500;
+    border-radius: 15px;
+    margin-right: 26px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 6px 14px 0px; */
     font-family: 'IBM Plex Mono';
     font-size: calc(12px + 3 * (100vw - 320px) / 930);
     color: #535353;
+    animation: slide-in-fwd-center 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
   }
 
-  input.visible:focus {
-    outline: 1px solid #fff500;
+  input:focus {
+    /* outline: 1px solid #fff500; */
+    outline: none;
   }
 
   button {
@@ -47,7 +46,7 @@ export const StyledFilter = styled.div`
   }
 
   button:hover {
-    background-image: url(${hoverFilter});
+    transform: scale(1.1);
   }
 
   span {

@@ -1,33 +1,45 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectContacts, selectLoading } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { StyledContactsLayout } from './ContactsLayout.styled';
+import PropTypes from 'prop-types';
 import Form from 'components/Form/Form';
 import ContactList from 'components/ContactList/ContactList';
 import phone from '../../images/phone-short.png';
-import vibration from '../../images/vibration.png';
 import Filter from 'components/Filter/Filter';
+import LogoutBtn from 'components/LogoutBtn/LogoutBtn';
 
-const ContactsLayout = () => {
+const ContactsLayout = ({
+  onDeleteContact,
+  onAddContact,
+  onLogout,
+  onFilter,
+}) => {
   const items = useSelector(selectContacts);
-  // const isLoading = useSelector(selectLoading);
 
   return (
     <StyledContactsLayout>
       <div className="cover">
         <div className="wrapper">
-          <img className="vibration" src={vibration} alt="vibration logo" />
           <img src={phone} alt="phone logo" />
           <h1>
             Contact
             <span>.</span>
           </h1>
-          <Filter />
+          <Filter onFilter={onFilter} />
+          <LogoutBtn onLogout={onLogout} />
         </div>
-        <Form />
-        {items.length > 0 && <ContactList />}
+        <Form onAddContact={onAddContact} />
+        {items.length > 0 && <ContactList onDeleteContact={onDeleteContact} />}
       </div>
     </StyledContactsLayout>
   );
+};
+
+ContactsLayout.propTypes = {
+  onDeleteContact: PropTypes.func.isRequired,
+  onAddContact: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired,
+  onFilter: PropTypes.func.isRequired,
 };
 
 export default ContactsLayout;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import vibration from '../../images/vibration.png';
 
 export const StyledContactsLayout = styled.div`
   width: 100vw;
@@ -17,24 +18,35 @@ export const StyledContactsLayout = styled.div`
   }
 
   div.wrapper {
-    max-width: 603.5px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    position: relative;
   }
 
   h1 {
     display: inline-block;
     margin-bottom: 20px;
-    margin-right: auto;
+    margin-right: 76.5px;
   }
 
-  img.vibration {
-    width: 40px;
+  h1::before {
+    content:".";
+    width: 42px;
+    height: 42px;
     opacity: 0;
+    display: inline-block;
     position: absolute;
     z-index: 1;
-    top: 78px;
+    top: 9px;
+    left: 13px;
+    background-image: url(${vibration});
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
     animation: tada 1250ms ease-in-out 1500ms;
   }
 

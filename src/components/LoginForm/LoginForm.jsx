@@ -1,30 +1,38 @@
 import { StyledLoginForm } from './LoginForm.styled';
 import { Link } from 'react-router-dom';
-import user from '../../images/userIcon.png';
-import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const LoginForm = () => {
-  const navigate = useNavigate();
 
-  const habndlerSubmit = evt => {
+const LoginForm = ({ onLogin }) => {
+  const handlerSubmit = evt => {
     evt.preventDefault();
-    navigate('/contacts', { replace: true });
+    const userData = {
+      email: evt.currentTarget.email.value,
+      password: evt.currentTarget.password.value,
+    };
+    onLogin(userData);
+    evt.currentTarget.reset();
   };
 
   return (
     <StyledLoginForm>
-      <form onSubmit={habndlerSubmit}>
+      <form onSubmit={handlerSubmit}>
         <h2>
           Login<span>.</span>
         </h2>
-        <img src={user} alt="icon" />
         <label>
           <span>Email </span>
-          <input type="email" required />
+          <input type="email" name="email" required />
         </label>
         <label className="password">
           <span>Password </span>
-          <input type="password" minLength="6" maxLength="12" required />
+          <input
+            type="password"
+            name="password"
+            minLength="6"
+            maxLength="12"
+            required
+          />
         </label>
         <p>
           Don't have an account? <Link to="/register">Sign up</Link>
@@ -33,6 +41,10 @@ const LoginForm = () => {
       </form>
     </StyledLoginForm>
   );
+};
+
+LoginForm.propTypes = {
+  onLogin: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

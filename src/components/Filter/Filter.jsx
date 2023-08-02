@@ -1,25 +1,28 @@
 import PropTypes from 'prop-types';
 import { StyledFilter } from './Filter.styled';
 import { useState } from 'react';
+import { selectFilter } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
-function Filter({ onFilter, filter }) {
-  const [visibleClass, setVisibleClass] = useState('');
+function Filter({ onFilter}) {
+  const filter = useSelector(selectFilter);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = () => {
-    visibleClass ? setVisibleClass('') : setVisibleClass('visible');
+    isVisible ? setIsVisible(false) : setIsVisible(true);
   };
 
   const handleInputChange = event => {
     onFilter(event.target.value);
   };
+
   return (
     <StyledFilter>
-      <input
+      {isVisible && <input
         onChange={handleInputChange}
-        className={visibleClass}
-        // value={filter}
+        value={filter}
         type="text"
-      />
+      />}
       <button type="button" onClick={handleClick}>
         <span>Filter</span>
       </button>
@@ -27,9 +30,8 @@ function Filter({ onFilter, filter }) {
   );
 }
 
-// Filter.propTypes = {
-//   onFilter: PropTypes.func.isRequired,
-//   filter: PropTypes.string.isRequired,
-// };
+Filter.propTypes = {
+  onFilter: PropTypes.func.isRequired,
+};
 
 export default Filter;

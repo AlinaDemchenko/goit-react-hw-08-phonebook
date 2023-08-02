@@ -1,28 +1,14 @@
 import { StyledForm } from './Form.styled';
-import { toast } from 'react-toastify';
-import { addContactThunk } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
-import { useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Form = () => {
-  const items = useSelector(selectContacts);
-  const dispatch = useDispatch();
-
+const Form = ({ onAddContact }) => {
   const handleSubmit = evt => {
     evt.preventDefault();
     const newContact = {
       name: evt.currentTarget.name.value,
       number: evt.currentTarget.number.value,
     };
-    const checkedContact = items.find(
-      contact => newContact.name === contact.name
-    );
-    if (checkedContact) {
-      toast.info(`${newContact.name} is already in your contacts`);
-      return;
-    } else {
-      dispatch(addContactThunk(newContact));
-    }
+    onAddContact(newContact);
     evt.currentTarget.reset();
   };
 
@@ -50,6 +36,10 @@ const Form = () => {
       </button>
     </StyledForm>
   );
+};
+
+Form.propTypes = {
+  onAddContact: PropTypes.func.isRequired,
 };
 
 export default Form;

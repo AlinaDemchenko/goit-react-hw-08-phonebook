@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import user from '../../images/userIcon.png';
 
 export const StyledLoginForm = styled.div`
   display: inline-block;
@@ -14,6 +15,7 @@ export const StyledLoginForm = styled.div`
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      position: relative;
   }
 
   h2 {
@@ -25,18 +27,34 @@ export const StyledLoginForm = styled.div`
     width: 107px;
   }
 
+  h2::after{
+    content: "";
+    width: 25px;
+    height: 13px;
+    position: absolute;
+    top: 90px;
+    left: 45%;
+    background-size: 25px 13px;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+    display: inline-block;
+    animation: flipInYVisible 1500ms ease both;
+    background-image: url(${user});
+  }
+
   h2 span {
     color: #fff500;
   }
 
-  img {
+  /* img {
     width: 25px;
     height: 13px;
     position: absolute;
     top: 90px;
     left: 45%;
     animation: flipInYVisible 1500ms ease both;
-  }
+  } */
 
   label {
     width: 313px;

@@ -1,17 +1,17 @@
-import Loader from 'components/Loader/Loader';
 import LoginForm from 'components/LoginForm/LoginForm';
-import Notification from 'components/Notification/Notification';
-import { useSelector } from 'react-redux';
-import { selectLoading } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from 'redux/operations';
 
 const Login = () => {
-  const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
 
+  const onLogin =(userData) =>{
+    dispatch(loginThunk(userData));
+  }
+  
   return (
     <main>
-      <LoginForm/>
-      {isLoading && <Loader />}
-      <Notification />
+      <LoginForm onLogin={onLogin}/>
     </main>
   );
 };

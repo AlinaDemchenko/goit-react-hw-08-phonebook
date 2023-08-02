@@ -1,17 +1,17 @@
-import Loader from 'components/Loader/Loader';
-import Notification from 'components/Notification/Notification';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
-import { useSelector } from 'react-redux';
-import { selectLoading } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
+import { registerThunk } from 'redux/operations';
 
 const Register = () => {
-  const isLoading = useSelector(selectLoading);
+  const dispatch = useDispatch();
+
+  const onRegister = (newUserData) => {
+    dispatch(registerThunk(newUserData));
+  }
 
   return (
     <main>
-      <RegistrationForm/>
-      {isLoading && <Loader />}
-      <Notification />
+      <RegistrationForm onRegister={onRegister}/>
     </main>
   );
 };

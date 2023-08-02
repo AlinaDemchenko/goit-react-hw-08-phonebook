@@ -60,17 +60,6 @@ export const StyledRegistrationForm = styled.div`
     color: black;
   }
 
-  /* label::after {
-    content: '✓';
-    font-size: 25px;
-    position: relative;
-    left: -42px;
-    bottom: 8px;
-    z-index: 2;
-    color: #fff500;
-    font-weight: bold;
-  } */
-
   button {
     display: inline-block;
     width: 160px;

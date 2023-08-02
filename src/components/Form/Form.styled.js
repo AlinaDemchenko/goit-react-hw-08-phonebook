@@ -38,7 +38,7 @@ export const StyledForm = styled.form`
     border: none;
     background-color: #fff500;
     border-radius: 50%;
-    color: black;
+    color: white;
     font-weight: bold;
     transform: rotate(45deg);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 14px 0px;
@@ -46,5 +46,11 @@ export const StyledForm = styled.form`
     justify-content: center;
     align-items: center;
     font-size: 90%;
+    /* transition: color 250ms cubic-bezier(0.250, 0.460, 0.450, 0.940), transform 250ms cubic-bezier(0.250, 0.460, 0.450, 0.940); */
+  }
+
+  button:hover {
+    /* color: white; */
+    transform: scale(1.2) rotate(45deg);
   }
 `;
