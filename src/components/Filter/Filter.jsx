@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { selectFilter } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
-function Filter({ onFilter}) {
+function Filter({ onFilter }) {
   const filter = useSelector(selectFilter);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,11 +18,9 @@ function Filter({ onFilter}) {
 
   return (
     <StyledFilter>
-      {isVisible && <input
-        onChange={handleInputChange}
-        value={filter}
-        type="text"
-      />}
+      {isVisible && (
+        <input onChange={handleInputChange} value={filter} type="text" />
+      )}
       <button type="button" onClick={handleClick}>
         <span>Filter</span>
       </button>

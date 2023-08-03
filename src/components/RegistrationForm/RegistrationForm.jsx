@@ -1,9 +1,18 @@
 import { StyledRegistrationForm } from './RegistrationForm.styled';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import { setError } from 'redux/rootSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const RegistrationForm = ({ onRegister }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handlerClick = () => {
+    dispatch(setError());
+    navigate('/login');
+  };
 
   const handlerSubmit = evt => {
     evt.preventDefault();
@@ -50,7 +59,11 @@ const RegistrationForm = ({ onRegister }) => {
         </label>
         <button type="Submit">SIGN UP</button>
         <p>
-          Already have an account? <Link to="/login"> Sign in</Link>
+          {/* Already have an account? <Link to="/login"> Sign in</Link> */}
+          Already have an account?{' '}
+          <button type="button" className="link" onClick={handlerClick}>
+            Sign in
+          </button>
         </p>
       </form>
     </StyledRegistrationForm>

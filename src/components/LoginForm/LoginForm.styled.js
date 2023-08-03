@@ -15,7 +15,7 @@ export const StyledLoginForm = styled.div`
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
-      position: relative;
+    position: relative;
   }
 
   h2 {
@@ -27,8 +27,8 @@ export const StyledLoginForm = styled.div`
     width: 107px;
   }
 
-  h2::after{
-    content: "";
+  h2::after {
+    content: '';
     width: 25px;
     height: 13px;
     position: absolute;
@@ -111,9 +111,22 @@ export const StyledLoginForm = styled.div`
     margin-bottom: 20px;
   }
 
-  a {
+  button.link {
+    display: inline;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 !important;
     color: black;
     padding: 3px;
     font-weight: bolder;
+    font-size: 14px;
+    font-family: sans-serif;
+    width: 55px;
+    border-radius: 0;
+    letter-spacing: 0;
+  }
+
+  button.link:hover {
+    box-shadow: none;
   }
 `;

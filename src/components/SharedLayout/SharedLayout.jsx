@@ -4,7 +4,6 @@ import { StyledSharedLayout } from './SharedLayout.styled';
 import Loader from 'components/Loader/Loader';
 
 const SharedLayout = () => {
-
   return (
     <StyledSharedLayout>
       <Suspense fallback={<Loader />}>

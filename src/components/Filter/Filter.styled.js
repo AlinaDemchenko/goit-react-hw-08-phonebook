@@ -5,7 +5,7 @@ export const StyledFilter = styled.div`
   display: flex;
   justify-content: flex-end;
   max-height: 28px;
-  min-width: 310.5px;
+  width: 310.5px;
   height: 28px;
   text-align: left;
 

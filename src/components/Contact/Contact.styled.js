@@ -19,15 +19,6 @@ export const StyledContact = styled.li`
     color: #535353;
   }
 
-  /* p::after {
-    content: '';
-    margin-left: 10px;
-    display: inline-block;
-    border-bottom: 2px dotted #bbbbbb;
-    width: 5px;
-    flex-grow: 2;
-  } */
-
   p > span {
     color: #fff500;
     margin-right: 20px;

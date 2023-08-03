@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const LogoutBtn = ({ onLogout }) => {
   return (
     <StyledLogoutBtn type="button" onClick={() => onLogout()}>
-     Logout<span className='right'>→</span>
+      Logout<span className="right">→</span>
     </StyledLogoutBtn>
   );
 };
@@ -12,6 +12,5 @@ const LogoutBtn = ({ onLogout }) => {
 LogoutBtn.propTypes = {
   onLogout: PropTypes.func.isRequired,
 };
-
 
 export default LogoutBtn;

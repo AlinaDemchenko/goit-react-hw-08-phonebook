@@ -8,6 +8,7 @@ export const StyledContactsLayout = styled.div`
 
   div.cover {
     max-width: 80%;
+    min-width: 870px;
     height: 80%;
     padding: 50px;
     background-color: #fff;
@@ -32,7 +33,7 @@ export const StyledContactsLayout = styled.div`
   }
 
   h1::before {
-    content:".";
+    content: '.';
     width: 42px;
     height: 42px;
     opacity: 0;

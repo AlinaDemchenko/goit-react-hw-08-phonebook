@@ -84,9 +84,22 @@ export const StyledRegistrationForm = styled.div`
     font-size: 14px;
   }
 
-  a {
+  button.link {
+    display: inline;
+    background-color: transparent;
+    margin: 0;
+    padding: 0 !important;
     color: black;
     padding: 3px;
     font-weight: bolder;
+    font-size: 14px;
+    font-family: sans-serif;
+    width: 50px;
+    border-radius: 0;
+    letter-spacing: 0;
+  }
+
+  button.link:hover {
+    box-shadow: none;
   }
 `;

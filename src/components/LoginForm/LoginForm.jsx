@@ -1,8 +1,18 @@
 import { StyledLoginForm } from './LoginForm.styled';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { setError } from 'redux/rootSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ onLogin }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handlerClick = () => {
+    dispatch(setError());
+    navigate('/register');
+  };
 
   const handlerSubmit = evt => {
     evt.preventDefault();
@@ -35,7 +45,11 @@ const LoginForm = ({ onLogin }) => {
           />
         </label>
         <p>
-          Don't have an account? <Link to="/register">Sign up</Link>
+          {/* Don't have an account? <Link to="/register">Sign up</Link> */}
+          Don't have an account?{' '}
+          <button type="button" className="link" onClick={handlerClick}>
+            Sign up
+          </button>
         </p>
         <button type="Submit">LOG IN</button>
       </form>

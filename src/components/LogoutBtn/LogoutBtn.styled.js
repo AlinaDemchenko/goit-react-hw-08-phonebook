@@ -15,10 +15,10 @@ export const StyledLogoutBtn = styled.button`
   overflow: hidden;
   transition: letter-spacing 0.25s ease;
 
-  &:hover{
+  &:hover {
     letter-spacing: 0.1em;
   }
-  
+
   span {
     display: inline-block;
     margin-left: 30px;
@@ -30,7 +30,7 @@ export const StyledLogoutBtn = styled.button`
     transition: margin-left 0.25s ease;
   }
 
-  &:hover span{
+  &:hover span {
     margin-left: 22px;
   }
 `;
