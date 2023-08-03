@@ -1,5 +1,4 @@
 import { StyledLoginForm } from './LoginForm.styled';
-// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setError } from 'redux/rootSlice';
 import { useDispatch } from 'react-redux';

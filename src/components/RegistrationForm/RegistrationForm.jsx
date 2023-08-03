@@ -1,5 +1,4 @@
 import { StyledRegistrationForm } from './RegistrationForm.styled';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setError } from 'redux/rootSlice';
 import { useDispatch } from 'react-redux';
